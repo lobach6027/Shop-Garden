@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import CategoriesPage from "../../pages/CategoriesPage";
 import MainPage from "../../pages/MainPage";
 import NotFoundPage from "../../pages/NotFoundPage";
-import SaleProductPage from "../../pages/SaleProductsPage";
 import Footer from "../Footer";
 import Header from "../Header";
 import { Route, Routes } from "react-router-dom";
@@ -26,14 +25,13 @@ function App() {
       <Routes>
         <Route element={<CategoriesPage />} path="/categories/all" />
         <Route element={<ProductsPage />} path="/products/all" />
-        <Route element={<SaleProductPage />} path="/products/sale" />
+        <Route element={<ProductsPage />} path="/products/sale" />
         <Route element={<MainPage />} path="/" />
         <Route element={<NotFoundPage />} path="/*" />
         <Route element={<ProductsPage/>} path="/categories/:id"/>
         <Route element={<SingleProductPage/>} path="/product/:id" />
         <Route element={<BasketPage/>} path="/basket" />
       </Routes>
-
       <Footer />
     </div>
   );

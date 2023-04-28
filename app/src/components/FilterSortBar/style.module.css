@@ -31,11 +31,23 @@
     border: 1px solid gray;
 
 }
-.search_container button{
+.search_container span{
 position: absolute;
-right: 0;
-bottom: 8px;
+right: 4px;
+bottom: 6px;
 background:none ;
 border: none;
+color: gray ;
 
+}
+select{
+  padding: 8px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #000000;
+  font-size: 15px;
+}
+
+input[type="checkbox" i] {
+  transform: scale(2.2);
 }

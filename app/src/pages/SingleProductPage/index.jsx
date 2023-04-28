@@ -1,17 +1,18 @@
 import React from "react";
 import s from "./style.module.css";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { basketAddAction } from "../../store/reducer/basketReducer";
 
 export default function SingleProductPage() {
   const { id } = useParams();
-  const products = useSelector((state) => state.products);
+  const products = useSelector(({products}) => products);
   const product = products.find((item) => item.id === +id);
-
+  const dispatch = useDispatch();
   return (
     <div>
       {product === undefined ? (
-        <p>Wait</p>
+        <p>Please wait ...</p>
       ) : (
         <div className={s.wrapper}>
           <h3>{product.title}</h3>
@@ -23,21 +24,16 @@ export default function SingleProductPage() {
               />
             </div>
             <div className={s.info}>
-              <div>
-                <span>{product.newprice} $ </span>
-                <span>{product.price} $ </span>
-                <span>
-                  {Math.round(
-                    ((product.price - product.newprice) * 100) / product.price
-                  )}
-                  %
-                </span>
+              <div className={s.price_block}>
+                <span className={s.new_price}>{product.finalPrice} $</span>
+                <span className={s.old_price}>{product.discont_price ? `${product.price} $` : ""}</span>
+                <span className={s.discount}>{(product.discountPercentage !== 0)?(`${product.discountPercentage} %`):('')}</span>
               </div>
-              <button>To cart</button>
+              <button onClick={() => dispatch(basketAddAction(+id))}>To cart</button>
               <img src="/images/line.png" alt="line" />
-              <div>
+              <div className={s.descriprion_container}>
                 <p>Description</p>
-                <p>{product.description}</p>
+                <div>{product.description}</div>
               </div>
             </div>
           </div>

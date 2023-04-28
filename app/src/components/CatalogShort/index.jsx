@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CategoryCard from "../CategoryCard";
 import s from './style.module.css'
+
 export default function CatalogShort() {
   const categories = useSelector((state) => state.categories).slice(0, 4);
   return (
@@ -14,9 +15,9 @@ export default function CatalogShort() {
         </button>
       </div>
       <div className={s.categories_container}>
-      {categories.map((item) => (
-        <CategoryCard key={item.id} {...item} />
-      ))}
+        {categories.map((item) => (
+          <CategoryCard key={item.id} {...item} />
+        ))}
       </div>
     </div>
   );

@@ -28,7 +28,7 @@
   color: #ffffff;
 }
 .nav {
-  width: 70%;
+  width: 60%;
   display: flex;
   gap: 30px;
   align-items: center;
@@ -48,10 +48,7 @@
   align-items: center;
   justify-content: flex-end;
 }
-.basket button {
-  border: none;
-  background: none;
-}
+
 .nav .active{
     color: #339933;
 }
